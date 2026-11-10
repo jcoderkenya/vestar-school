@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vestar School Chuka | Nurturing Minds, Building Futures &middot; CBC &amp; JSS</title>
+  <meta name="description" content="Premier private primary and junior secondary school in Chuka, Tharaka-Nithi County. Offering KICD Competency-Based Curriculum (CBC), science labs, and reliable school transport." />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Vestar School · Chuka, Tharaka-Nithi" />
+  <meta property="og:description" content="Nurturing Minds, Building Futures. Leading CBC & Junior Secondary School along Chuka–Kiang'ondu Forest Road." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vestar: {
+              navy: '#0B1E3B',
+              dark: '#071326',
+              card: '#122B54',
+              gold: '#F59E0B',
+              amber: '#D97706',
+              emerald: '#059669',
+              light: '#F8FAFC',
+              cream: '#FAF7F2'
+            }
+          },
+          fontFamily: {
+            display: ['"Outfit"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::selection { background-color: #F59E0B; color: #0B1E3B; }
+    .glow-gold { box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-vestar-light text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-vestar-gold selection:text-vestar-navy">
+
+  <!-- TOP ANNOUNCEMENT BAR (NO PERSONAL NUMBERS) -->
+  <aside class="bg-vestar-navy text-white text-xs py-2 px-4 border-b border-slate-800" aria-label="School Admissions Bar">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 font-medium">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-vestar-gold animate-pulse"></span>
+        <span><strong>VESTAR SCHOOL:</strong> Kibumbu Area, Along Chuka–Kiang’ondu Forest Road &middot; Admissions Open</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-300 text-[11px] sm:text-xs">
+        <span class="hidden md:inline">Playgroup to Junior Secondary (JSS)</span>
+        <span class="hidden md:inline">&bull;</span>
+        <span class="hidden md:inline">Transport Routes Across Chuka &amp; Ndagani</span>
+        <span class="hidden md:inline">&bull;</span>
+        <button onclick="openAdmissionModal()" class="text-vestar-gold hover:underline font-bold">
+          Book School Tour
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- STICKY HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 shrink-0">
+        <div class="w-12 h-12 rounded-2xl bg-vestar-navy text-vestar-gold flex items-center justify-center font-display font-black text-2xl shadow-md border-2 border-vestar-gold">
+          VS
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-display text-xl sm:text-2xl font-black tracking-tight text-vestar-navy leading-none">VESTAR SCHOOL</span>
+            <span class="bg-amber-100 text-amber-900 text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded border border-amber-200">Chuka</span>
+          </div>
+          <span class="text-[10px] tracking-widest uppercase text-vestar-emerald font-bold mt-1">Nurturing Minds, Building Futures</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center space-x-7 text-xs sm:text-sm font-bold text-slate-700">
+        <a href="#about" class="hover:text-vestar-amber transition-colors">About Us</a>
+        <a href="#curriculum" class="hover:text-vestar-amber transition-colors">CBC &amp; JSS Curriculum</a>
+        <a href="#facilities" class="hover:text-vestar-amber transition-colors">Campus Facilities</a>
+        <a href="#transport" class="hover:text-vestar-amber transition-colors">Transport Routes</a>
+        <a href="#admissions" class="hover:text-vestar-amber transition-colors">Admissions &amp; Fees</a>
+        <a href="#contact" class="hover:text-vestar-amber transition-colors">Contact &amp; Map</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="triggerWhatsApp('admission inquiry')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-100 hover:bg-slate-200 text-vestar-navy text-xs font-bold transition-all" aria-label="Admissions WhatsApp">
+          <svg class="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Enquire on WhatsApp</span>
+        </button>
+
+        <button onclick="openAdmissionModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-vestar-gold to-vestar-amber hover:from-amber-400 hover:to-amber-600 text-vestar-navy font-black text-xs sm:text-sm transition-all shadow-md glow-gold">
+          <span>Apply Online</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-700 hover:text-vestar-navy" aria-label="Toggle navigation">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4">
+      <a href="#about" onclick="toggleMobileMenu()" class="block text-base font-semibold py-1">About Vestar School</a>
+      <a href="#curriculum" onclick="toggleMobileMenu()" class="block text-base font-semibold py-1">CBC &amp; Junior Secondary (JSS)</a>
+      <a href="#facilities" onclick="toggleMobileMenu()" class="block text-base font-semibold py-1">Science &amp; Pre-Tech Labs</a>
+      <a href="#transport" onclick="toggleMobileMenu()" class="block text-base font-semibold py-1">Bus Transport Routes</a>
+      <a href="#admissions" onclick="toggleMobileMenu()" class="block text-base font-semibold py-1">Admissions &amp; Fee Structure</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block text-base font-semibold py-1">Location (Kibumbu, Chuka)</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <button onclick="openAdmissionModal(); toggleMobileMenu();" class="w-full py-3 bg-vestar-navy text-white font-extrabold rounded-xl text-sm">
+          Book School Tour / Apply
+        </button>
+        <button onclick="triggerWhatsApp('fee structure request'); toggleMobileMenu();" class="w-full py-3 bg-emerald-600 text-white font-bold rounded-xl text-xs">
+          Request Fee Structure on WhatsApp
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-24 md:py-32 bg-gradient-to-b from-vestar-dark via-vestar-navy to-vestar-dark text-white overflow-hidden">
+      <!-- Background Ambient Glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-vestar-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider text-vestar-gold">
+              <span class="w-2 h-2 rounded-full bg-vestar-gold animate-ping"></span>
+              <span>Kibumbu, Along Chuka–Kiang’ondu Forest Road</span>
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+              Nurturing Minds. <br class="hidden sm:inline" />
+              Building Futures. <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-vestar-gold via-amber-300 to-yellow-100">
+                Center of Excellence in Chuka.
+              </span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Vestar School delivers holistic Competency-Based Education (CBC) from Early Years to Junior Secondary School (JSS). We inculcate practical life skills, strong moral character, and academic brilliance in a serene, nature-rich environment.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <button onclick="openAdmissionModal()" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-vestar-gold to-vestar-amber hover:from-amber-400 hover:to-amber-600 text-vestar-navy font-extrabold text-sm rounded-xl shadow-xl glow-gold transition-all transform hover:-translate-y-0.5">
+                Apply for Admission
+              </button>
+              <button onclick="triggerWhatsApp('fee structure and prospectus request')" class="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-sm rounded-xl transition-colors">
+                Request Fee Structure PDF
+              </button>
+            </div>
+
+            <!-- School Trust Points -->
+            <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-300 font-medium">
+              <span class="flex items-center gap-1.5"><span class="text-vestar-gold font-bold">&check;</span> Fully Registered CBC &amp; JSS</span>
+              <span class="flex items-center gap-1.5"><span class="text-vestar-gold font-bold">&check;</span> Science &amp; Pre-Tech Laboratories</span>
+              <span class="flex items-center gap-1.5"><span class="text-vestar-gold font-bold">&check;</span> Safe Chuka Doorstep Bus Fleet</span>
+            </div>
+          </div>
+
+          <!-- Hero Image Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-vestar-gold/30 to-vestar-emerald/30 blur-xl opacity-75"></div>
+
+              <div class="relative rounded-3xl overflow-hidden bg-vestar-card border border-slate-700 shadow-2xl aspect-[4/5]">
+                <img 
+                  src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" 
+                  alt="Vestar School Chuka Learners and Campus" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-vestar-dark via-transparent to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 space-y-2 text-white">
+                  <span class="px-2.5 py-0.5 rounded bg-vestar-emerald text-white text-[10px] font-black uppercase">
+                    Holistic Growth
+                  </span>
+                  <h3 class="font-display font-extrabold text-xl sm:text-2xl">Excellence in Action</h3>
+                  <p class="text-xs text-slate-300">Equipping learners with hands-on community problem-solving skills.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE PHILOSOPHY / ABOUT SECTION -->
+    <section id="about" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-xs font-bold tracking-widest uppercase text-vestar-amber">About Vestar School</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-vestar-navy leading-tight">
+              A Dynamic Center of Excellence in Chuka.
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Situated in the calm, scenic Kibumbu area along the Chuka–Kiang’ondu Forest Road, Vestar School provides an inspiring environment free from urban noise, allowing young minds to focus, discover their gifts, and thrive academically.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="p-4 rounded-2xl bg-vestar-cream border border-slate-200 space-y-1">
+                <span class="text-xs font-bold text-vestar-amber uppercase">Our Vision</span>
+                <p class="text-xs sm:text-sm text-slate-700 italic">
+                  &ldquo;To be a dynamic center of excellence in teaching, learning, and service to the community.&rdquo;
+                </p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-vestar-cream border border-slate-200 space-y-1">
+                <span class="text-xs font-bold text-vestar-emerald uppercase">Our Mission</span>
+                <p class="text-xs sm:text-sm text-slate-700 italic">
+                  &ldquo;To provide quality education as well as inculcate practical skills for community development.&rdquo;
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <button onclick="openAdmissionModal()" class="inline-flex items-center gap-2 text-xs font-bold text-vestar-amber hover:underline">
+                <span>Schedule a Campus Visit with Administration &rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature Cards Grid -->
+          <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="p-6 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-100 text-vestar-amber flex items-center justify-center font-bold text-lg">
+                🏆
+              </div>
+              <h4 class="font-display font-bold text-vestar-navy text-base">Character First</h4>
+              <p class="text-xs text-slate-600">Instilling honesty, responsibility, empathy, and strong Christian values in everyday school interactions.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-vestar-emerald flex items-center justify-center font-bold text-lg">
+                🌱
+              </div>
+              <h4 class="font-display font-bold text-vestar-navy text-base">Practical CBC</h4>
+              <p class="text-xs text-slate-600">Hands-on learning through school farming plots, science investigations, and creative arts exhibitions.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg">
+                💻
+              </div>
+              <h4 class="font-display font-bold text-vestar-navy text-base">Digital Literacy</h4>
+              <p class="text-xs text-slate-600">Equipping learners from primary ages with computer skills, coding logic, and interactive classroom learning.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-lg">
+                📱
+              </div>
+              <h4 class="font-display font-bold text-vestar-navy text-base">Parent Portal</h4>
+              <p class="text-xs text-slate-600">Real-time attendance tracking, electronic fee statements, learner diaries, and end-term report cards.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CURRICULUM LEVELS (CBC & JSS) -->
+    <section id="curriculum" class="py-20 bg-vestar-cream border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <span class="text-xs font-bold tracking-widest uppercase text-vestar-amber">Academic Pathway</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-vestar-navy">Curriculum Structure</h2>
+          <p class="text-sm text-slate-600">
+            Approved by the Ministry of Education and KICD, delivering student-centered competency mastery.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Level 1: Early Years -->
+          <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4 hover:border-vestar-gold transition-all">
+            <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-extrabold text-[10px] uppercase tracking-wide">
+              Early Years Education
+            </span>
+            <h3 class="font-display font-bold text-2xl text-vestar-navy">Playgroup, PP1 &amp; PP2</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Nurturing curiosity, early phonics, foundational number work, social sharing, and psychomotor skills through guided play and Montessori learning materials.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+              <li>&check; Warm, caring, qualified ECD caregivers</li>
+              <li>&check; Creative arts, music &amp; storytelling</li>
+              <li>&check; Wholesome mid-morning porridge &amp; balanced lunch</li>
+            </ul>
+          </div>
+
+          <!-- Level 2: Primary (Grade 1-6) -->
+          <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4 hover:border-vestar-gold transition-all">
+            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-extrabold text-[10px] uppercase tracking-wide">
+              Lower &amp; Upper Primary
+            </span>
+            <h3 class="font-display font-bold text-2xl text-vestar-navy">Grade 1 to Grade 6</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Structured mastery of English, Kiswahili, Mathematics, Science &amp; Technology, Agriculture, Social Studies, and Creative Arts with formative CBC assessments.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+              <li>&check; Continuous classroom assessment tracking</li>
+              <li>&check; Talent development (football, drama, music)</li>
+              <li>&check; Preparation for KPSEA national assessment</li>
+            </ul>
+          </div>
+
+          <!-- Level 3: Junior Secondary (JSS) -->
+          <div class="p-8 rounded-3xl bg-vestar-navy text-white border-2 border-vestar-gold shadow-xl space-y-4 glow-gold">
+            <span class="px-3 py-1 rounded-full bg-vestar-gold text-vestar-navy font-black text-[10px] uppercase tracking-wide">
+              Flagship Wing
+            </span>
+            <h3 class="font-display font-bold text-2xl text-white">Junior Secondary (JSS)</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Grade 7, 8 &amp; 9. Dedicated specialized subject teachers, well-equipped science laboratories, home science workshops, and pre-technical studies facilities.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-200 pt-2 border-t border-slate-700">
+              <li>&check; Fully equipped Pre-Technical &amp; Science Labs</li>
+              <li>&check; Computer lab with broadband connectivity</li>
+              <li>&check; Career path exploration &amp; leadership clubs</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAMPUS FACILITIES -->
+    <section id="facilities" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+          <span class="text-xs font-bold tracking-widest uppercase text-vestar-emerald">Modern Learning Environment</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-vestar-navy">Campus Facilities</h2>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Purpose-built infrastructure designed to make every school day safe, comfortable, and productive.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-5 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+            <span class="text-2xl">🔬</span>
+            <h4 class="font-display font-bold text-vestar-navy text-base">Integrated Science Lab</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Equipped with apparatus, reagents, and safety gear for hands-on CBC practicals and experiments.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+            <span class="text-2xl">🖥️</span>
+            <h4 class="font-display font-bold text-vestar-navy text-base">ICT &amp; Computer Suite</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Workstations for student digital learning, research, coding fundamentals, and media literacy.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+            <span class="text-2xl">⚽</span>
+            <h4 class="font-display font-bold text-vestar-navy text-base">Sports Field &amp; Athletics</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Spacious grassy sports grounds for football, athletics, netball, and physical education drills.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-vestar-cream border border-slate-200 space-y-2">
+            <span class="text-2xl">🍲</span>
+            <h4 class="font-display font-bold text-vestar-navy text-base">Hygienic Dining &amp; Kitchen</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Nutritious, hot meals prepared daily following strict hygiene and dietary standards.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TRANSPORT ROUTES -->
+    <section id="transport" class="py-20 bg-vestar-cream border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-5">
+            <span class="text-xs font-bold tracking-widest uppercase text-vestar-amber">Safe &amp; Dependable</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-vestar-navy leading-tight">
+              School Bus Fleet &amp; Pick-Up Routes.
+            </h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              We operate a fleet of well-maintained school buses with qualified drivers and caring bus assistants to ensure your child is picked up and dropped off safely every morning and evening.
+            </p>
+
+            <div class="space-y-3 pt-2 text-xs">
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="font-bold text-slate-800">Route 1: Chuka Town CBD &amp; Environs</span>
+                <span class="text-emerald-700 font-bold bg-emerald-100 px-2.5 py-1 rounded">Daily Doorstep</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="font-bold text-slate-800">Route 2: Ndagani &amp; Chuka University Axis</span>
+                <span class="text-emerald-700 font-bold bg-emerald-100 px-2.5 py-1 rounded">Daily Doorstep</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="font-bold text-slate-800">Route 3: Kibumbu &amp; Kiang’ondu Forest Road</span>
+                <span class="text-emerald-700 font-bold bg-emerald-100 px-2.5 py-1 rounded">Daily Doorstep</span>
+              </div>
+              <div class="p-3.5 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                <span class="font-bold text-slate-800">Route 4: Magutuni &amp; Extended Environs</span>
+                <span class="text-vestar-navy font-bold bg-slate-100 px-2.5 py-1 rounded">By Arrangement</span>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <button onclick="triggerWhatsApp('bus route inquiry')" class="inline-flex items-center gap-2 text-xs font-bold text-vestar-amber hover:underline">
+                <span>Inquire about bus stops and transport fees for your location &rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-vestar-navy text-white p-8 sm:p-10 rounded-3xl space-y-6 shadow-xl border border-slate-700">
+            <h3 class="font-display text-2xl font-bold">Child Safety &amp; Transport Standards</h3>
+            <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="text-vestar-gold font-bold text-base">&check;</span>
+                <span><strong>Dedicated Bus Minders:</strong> Every bus has an attendant to assist young learners getting on and off safely.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-vestar-gold font-bold text-base">&check;</span>
+                <span><strong>Speed Governor &amp; Seat Belts:</strong> Strictly compliant with Ministry of Transport school safety regulations.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-vestar-gold font-bold text-base">&check;</span>
+                <span><strong>Parent SMS Alerts:</strong> Timely notifications regarding departure and arrival schedules.</span>
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <button onclick="openAdmissionModal()" class="w-full py-3 bg-gradient-to-r from-vestar-gold to-vestar-amber text-vestar-navy font-black rounded-xl text-xs sm:text-sm">
+                Enroll with School Transport
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ADMISSIONS & INTERACTIVE FEE ESTIMATOR -->
+    <section id="admissions" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-12">
+          <span class="text-xs font-bold tracking-widest uppercase text-vestar-emerald">Join the Vestar Family</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-vestar-navy">Admissions &amp; Fee Inquiry</h2>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
+            Transparent fee structures with no hidden levies. Use this tool to calculate estimated term costs or request the official breakdown.
+          </p>
+        </div>
+
+        <div class="bg-vestar-cream p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Select Grade / Level:</label>
+              <select id="calc-level" onchange="calculateFees()" class="w-full p-3 rounded-xl border border-slate-300 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-vestar-gold">
+                <option value="early">Early Years (Playgroup, PP1, PP2)</option>
+                <option value="primary" selected>Primary School (Grade 1 &ndash; 6)</option>
+                <option value="jss">Junior Secondary School (Grade 7 &ndash; 9)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Transport Option:</label>
+              <select id="calc-transport" onchange="calculateFees()" class="w-full p-3 rounded-xl border border-slate-300 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-vestar-gold">
+                <option value="none">No School Transport (Parent Drop-off)</option>
+                <option value="zone1" selected>Zone 1 (Kibumbu / Forest Rd Environs)</option>
+                <option value="zone2">Zone 2 (Chuka CBD / Ndagani Area)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs text-slate-500 font-medium">Estimated Term Investment (Tuition + Meals + Transport):</span>
+              <div id="calc-total" class="font-display font-black text-2xl text-vestar-navy mt-0.5">KSh 22,500 <span class="text-xs font-normal text-slate-500">/ term</span></div>
+            </div>
+
+            <button onclick="submitFeeInquiry()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition-all shadow-md">
+              Send Fee Inquiry to WhatsApp
+            </button>
+          </div>
+
+          <p class="text-[11px] text-slate-500 text-center italic">
+            * Note: Exact official fee structures vary by specific grade and term. The school administration confirms final figures upon registration.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOCATION & VISITING HOURS -->
+    <section id="contact" class="py-20 bg-vestar-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-xs font-bold tracking-widest uppercase text-vestar-amber">Visit Our Campus</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-vestar-navy">Location &amp; Hours</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Vestar School is located in the peaceful Kibumbu neighborhood along the Chuka–Kiang’ondu Forest Road, right next to Gospel Celebration Church. Parents are welcome for campus tours on weekdays and Saturdays.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="p-4 rounded-xl bg-white border border-slate-200">
+                <span class="text-xs text-slate-400 block uppercase font-bold">Physical Address</span>
+                <p class="text-sm font-bold text-vestar-navy mt-1">Kibumbu Area, Along Chuka–Kiang’ondu Forest Road</p>
+                <p class="text-xs text-slate-500">Adjacent to Gospel Celebration Church &middot; Chuka, Tharaka-Nithi County</p>
+                <p class="text-xs text-slate-500 mt-1">Postal Address: P.O. Box 710 &ndash; 60400, Chuka</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-white border border-slate-200">
+                <span class="text-xs text-slate-400 block uppercase font-bold">Administration &amp; Inquiries</span>
+                <p class="text-sm font-bold text-vestar-navy mt-1">Office of the School Principal / Admissions</p>
+                <p class="text-xs text-slate-500">Direct WhatsApp channel available for admissions, interviews, and fee structures</p>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-wrap gap-4">
+              <a href="https://maps.google.com/?q=Chuka,+Kenya" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl border border-slate-300 hover:border-slate-500 bg-white text-vestar-navy text-xs font-bold transition-colors">
+                Open Chuka in Google Maps
+              </a>
+              <button onclick="triggerWhatsApp('directions to Vestar School Kibumbu campus')" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors">
+                Request Landmark Pin on WhatsApp
+              </button>
+            </div>
+          </div>
+
+          <!-- Schedule -->
+          <div class="lg:col-span-6 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <h3 class="font-display text-2xl font-bold text-vestar-navy mb-6 pb-3 border-b border-slate-100">
+              Administration Office Hours
+            </h3>
+            
+            <div class="space-y-3.5 text-sm">
+              <div class="flex justify-between items-center py-1">
+                <span class="text-slate-600 font-semibold">Monday &ndash; Friday</span>
+                <span class="text-vestar-navy font-bold">7:30 AM &ndash; 5:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-t border-slate-100">
+                <span class="text-slate-600 font-semibold">Saturday</span>
+                <span class="text-vestar-navy font-bold">8:30 AM &ndash; 1:00 PM (Admissions &amp; Tours)</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-t border-slate-100 text-vestar-amber font-semibold">
+                <span>Sunday &amp; Public Holidays</span>
+                <span>Closed</span>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 rounded-xl bg-vestar-cream border border-slate-200 text-xs text-slate-700 leading-relaxed">
+              <strong>Admission Interviews:</strong> Carried out on weekdays between 8:30 AM and 3:30 PM. Parents should carry the learner's birth certificate and previous report card.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-vestar-dark text-slate-400 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3">
+          <span class="font-display text-lg font-black text-white">VESTAR SCHOOL</span>
+          <p class="leading-relaxed">
+            Registered private primary and junior secondary institution in Chuka, Tharaka-Nithi. Nurturing minds and building futures through Competency-Based Education.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <span class="font-bold text-white uppercase text-[11px] block">Academic Wings</span>
+          <ul class="space-y-1 text-slate-400">
+            <li>Playgroup &amp; Kindergarten (PP1 &amp; PP2)</li>
+            <li>Lower Primary (Grade 1 &ndash; 3)</li>
+            <li>Upper Primary (Grade 4 &ndash; 6)</li>
+            <li>Junior Secondary School (Grade 7 &ndash; 9)</li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <span class="font-bold text-white uppercase text-[11px] block">Campus Address</span>
+          <p class="leading-relaxed text-slate-400">
+            Kibumbu, Chuka–Kiang’ondu Forest Rd<br />
+            P.O. Box 710 – 60400, Chuka<br />
+            Tharaka-Nithi County, Kenya<br /><br />
+            Opposite Gospel Celebration Church
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <span class="font-bold text-white uppercase text-[11px] block">Admissions Portal</span>
+          <p class="leading-relaxed text-slate-400">
+            Book an interview or request the current fee structure directly via WhatsApp.
+          </p>
+          <div class="pt-1">
+            <button onclick="openAdmissionModal()" class="px-4 py-2 bg-vestar-card hover:bg-slate-700 text-vestar-gold border border-slate-700 rounded-lg text-xs font-bold">
+              Apply Online
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-slate-800 text-center text-slate-500 text-[11px]">
+        &copy; <span id="current-year"></span> Vestar School &middot; Chuka, Tharaka-Nithi County.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ADMISSIONS & TOUR APPLICATION MODAL -->
+  <div id="admission-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto space-y-5 border border-slate-200">
+      
+      <div class="flex items-start justify-between border-b border-slate-200 pb-3">
+        <div>
+          <span class="text-vestar-amber text-[10px] font-bold uppercase tracking-wider block">Vestar School Chuka</span>
+          <h2 id="modal-title" class="font-display text-xl sm:text-2xl font-bold text-vestar-navy">Admission Application</h2>
+        </div>
+        <button onclick="closeAdmissionModal()" class="text-slate-400 hover:text-slate-600 p-2" aria-label="Close modal">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Application Form -->
+      <form onsubmit="handleAdmissionSubmit(event)" class="space-y-4 text-xs">
+        
+        <div>
+          <label class="block text-slate-700 font-semibold mb-1">Applying for Level / Grade:</label>
+          <select id="adm-grade" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-vestar-gold">
+            <option value="Playgroup / PP1 / PP2">Early Years (Playgroup / PP1 / PP2)</option>
+            <option value="Lower Primary (Grade 1 - 3)">Lower Primary (Grade 1 &ndash; 3)</option>
+            <option value="Upper Primary (Grade 4 - 6)" selected>Upper Primary (Grade 4 &ndash; 6)</option>
+            <option value="Junior Secondary School (Grade 7 - 9)">Junior Secondary (Grade 7 &ndash; 9)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-700 font-semibold mb-1">Learner's Full Name:</label>
+            <input type="text" id="adm-student-name" required placeholder="e.g. Joy Mwende" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-vestar-gold" />
+          </div>
+          <div>
+            <label class="block text-slate-700 font-semibold mb-1">Parent / Guardian Name:</label>
+            <input type="text" id="adm-parent-name" required placeholder="e.g. Mr. Mutembei" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-vestar-gold" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-700 font-semibold mb-1">School Transport Needed?</label>
+            <select id="adm-transport" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-vestar-gold">
+              <option value="Yes (Chuka CBD / Ndagani)">Yes &ndash; Chuka / Ndagani Route</option>
+              <option value="Yes (Kibumbu / Kiang'ondu)">Yes &ndash; Kibumbu / Forest Rd Route</option>
+              <option value="No (Self Drop-off)">No &ndash; Self Drop-off</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-slate-700 font-semibold mb-1">Preferred Interview Date:</label>
+            <input type="date" id="adm-date" required class="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-slate-800 text-xs focus:outline-none focus:ring-2 focus:ring-vestar-gold" />
+          </div>
+        </div>
+
+        <!-- M-Pesa Assessment Fee Deposit (Optional) -->
+        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 mt-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-vestar-navy flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Pay Assessment &amp; Interview Deposit (Optional)
+            </span>
+            <span class="text-[10px] text-slate-500 font-mono">Daraja STK</span>
+          </div>
+          <input 
+            type="tel" 
+            id="mpesa-phone" 
+            placeholder="M-Pesa phone number (e.g. 0712 345 678)"
+            class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-vestar-gold" 
+          />
+          <button 
+            type="button"
+            onclick="payWithMpesa(event)"
+            class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition-colors"
+          >
+            Send M-Pesa Prompt (KSh 1,000 Assessment Fee)
+          </button>
+          <p class="text-[10px] text-slate-500 text-center leading-tight">
+            An M-Pesa prompt will appear on your phone. Enter your PIN to confirm the interview slot.
+          </p>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-3.5 bg-gradient-to-r from-vestar-gold to-vestar-amber hover:from-amber-400 hover:to-amber-600 text-vestar-navy font-black rounded-xl text-xs sm:text-sm shadow-lg glow-gold transition-all"
+        >
+          Submit Admission Application on WhatsApp
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON (NO NUMBER EXPOSED) -->
+  <aside aria-label="Quick WhatsApp contact">
+    <button onclick="triggerWhatsApp('admissions and tour enquiry')" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-2xl flex items-center gap-2 transition-all transform hover:scale-105" aria-label="WhatsApp Vestar School">
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      <span class="hidden sm:inline font-bold text-xs tracking-wide">Admissions Desk</span>
+    </button>
+  </aside>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-vestar-navy text-white text-xs px-5 py-3 rounded-full shadow-2xl opacity-0 pointer-events-none transition-opacity duration-300 z-50 border border-vestar-gold">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- SCRIPT (NO HARDCODED PHONE NUMBERS) -->
+  <script>
+    // =========================================================================
+    // CONFIGURATION
+    // No personal names or hardcoded telephone numbers in the UI.
+    // Configure STORE_PHONE when going live in production (e.g. '2547XXXXXXXX')
+    // =========================================================================
+    const WORKER_URL = 'https://YOUR-WORKER.your-subdomain.workers.dev';
+    const STORE_PHONE = ''; // Configurable phone number
+
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Default interview date to 2 days ahead
+    const dateInput = document.getElementById('adm-date');
+    if (dateInput) {
+      const d = new Date();
+      d.setDate(d.getDate() + 2);
+      dateInput.value = d.toISOString().split('T')[0];
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function openAdmissionModal() {
+      document.getElementById('admission-modal').classList.remove('hidden');
+    }
+
+    function closeAdmissionModal() {
+      document.getElementById('admission-modal').classList.add('hidden');
+    }
+
+    // Fee Calculator Logic
+    function calculateFees() {
+      const level = document.getElementById('calc-level').value;
+      const transport = document.getElementById('calc-transport').value;
+
+      let baseTuition = 15000;
+      if (level === 'early') baseTuition = 12000;
+      if (level === 'jss') baseTuition = 20000;
+
+      let transportCost = 0;
+      if (transport === 'zone1') transportCost = 5000;
+      if (transport === 'zone2') transportCost = 7500;
+
+      const total = baseTuition + transportCost;
+      document.getElementById('calc-total').innerHTML = `KSh ${total.toLocaleString()} <span class="text-xs font-normal text-slate-500">/ term</span>`;
+    }
+
+    function submitFeeInquiry() {
+      const level = document.getElementById('calc-level').options[document.getElementById('calc-level').selectedIndex].text;
+      const transport = document.getElementById('calc-transport').options[document.getElementById('calc-transport').selectedIndex].text;
+      const total = document.getElementById('calc-total').innerText;
+
+      const msg = `Hello Vestar School Admissions,\n\nI would like an official fee structure breakdown for:\n• Level: ${level}\n• Transport Option: ${transport}\n• Estimated Estimate: ${total}\n\nPlease share the official prospectus and interview requirements.`;
+
+      if (!STORE_PHONE || STORE_PHONE.trim() === '') {
+        showToast(`Fee inquiry formatted for ${level}`);
+        console.log(msg);
+      } else {
+        window.open(`https://wa.me/${STORE_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+      }
+    }
+
+    // Guarded WhatsApp Router
+    function triggerWhatsApp(subject) {
+      const msg = `Hello Vestar School Chuka, I would like to inquire about: ${subject}.`;
+      if (!STORE_PHONE || STORE_PHONE.trim() === '') {
+        showToast(`WhatsApp message ready: "${msg}"`);
+      } else {
+        window.open(`https://wa.me/${STORE_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+      }
+    }
+
+    // Admission Form Submit
+    function handleAdmissionSubmit(e) {
+      e.preventDefault();
+      const grade = document.getElementById('adm-grade').value;
+      const student = document.getElementById('adm-student-name').value;
+      const parent = document.getElementById('adm-parent-name').value;
+      const transport = document.getElementById('adm-transport').value;
+      const date = document.getElementById('adm-date').value;
+
+      const msg = `Hello Vestar School Chuka,\n\nI would like to apply for admission:\n• Grade/Level: ${grade}\n• Learner's Name: ${student}\n• Parent/Guardian: ${parent}\n• School Transport: ${transport}\n• Preferred Visit/Interview Date: ${date}\n\nPlease confirm interview schedule.`;
+
+      if (!STORE_PHONE || STORE_PHONE.trim() === '') {
+        showToast(`Admission application formatted for ${student}`);
+        console.log(msg);
+      } else {
+        window.open(`https://wa.me/${STORE_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+      }
+      closeAdmissionModal();
+    }
+
+    // M-Pesa STK Push Assessment Deposit
+    async function payWithMpesa(ev) {
+      const phoneInput = document.getElementById('mpesa-phone').value.trim();
+      const student = document.getElementById('adm-student-name').value;
+
+      if (!phoneInput) {
+        showToast('Please enter your M-Pesa phone number.');
+        return;
+      }
+
+      // KSh 1,000 standard registration / assessment fee
+      const amount = 1000;
+
+      let phone = phoneInput.replace(/\s+/g, '');
+      if (phone.startsWith('0')) phone = '254' + phone.slice(1);
+      if (phone.startsWith('+')) phone = phone.slice(1);
+      if (!phone.startsWith('254')) phone = '254' + phone;
+
+      const btn = ev.target;
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending M-Pesa prompt...';
+
+      try {
+        const res = await fetch(WORKER_URL + '/pay', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone, amount, note: `Vestar Assessment - ${student || 'Learner'}` })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast(data.message || 'Check your phone for the M-Pesa PIN prompt.');
+          btn.textContent = 'Prompt sent — check phone';
+          setTimeout(() => { btn.disabled = false; btn.innerHTML = original; }, 3000);
+        } else {
+          showToast('Payment failed: ' + (data.message || 'try again'));
+          btn.disabled = false; btn.innerHTML = original;
+        }
+      } catch (e) {
+        showToast('Could not reach the payment server.');
+        btn.disabled = false; btn.innerHTML = original;
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => toast.classList.add('opacity-0', 'pointer-events-none'), 3500);
+    }
+  </script>
+</body>
+</html>
